@@ -1,44 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Marasigan's Portfolio">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio of Mikko Marasigan, a 4th Year BSCS-DS student." />
+    <meta name="author" content="Mikko Marasigan" />
     <title>Marasigan - Portfolio</title>
+    <link rel="icon" href="favicon.ico" />
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
             background-color: #f4f4f4;
+            line-height: 1.6;
         }
+
         header {
             background-color: #333;
             color: white;
             padding: 20px;
             text-align: center;
         }
+
         header h1 {
             margin: 0;
+            font-size: 2em;
         }
+
         nav {
+            position: sticky;
+            top: 0;
+            z-index: 999;
             display: flex;
             justify-content: center;
             background-color: #444;
         }
+
         nav a {
             color: white;
             padding: 14px 20px;
             text-decoration: none;
-            text-align: center;
+            transition: background-color 0.3s;
         }
-        nav a:hover {
+
+        nav a:hover, nav a.active {
             background-color: #575757;
         }
-        section {
-            padding: 40px 20px;
+
+        main {
+            padding: 0 20px;
         }
-        .about, .skills, .education, .projects, .contact {
+
+        section {
+            padding: 40px 0;
             max-width: 1200px;
             margin: 0 auto;
             background-color: white;
@@ -46,29 +64,74 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
         h2 {
             color: #333;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
         }
+
         .projects .project {
             display: flex;
-            justify-content: space-between;
+            flex-wrap: wrap;
             margin-bottom: 20px;
         }
-        .projects .project img {
-            width: 200px;
-            height: auto;
+
+        .project img {
+            width: 100%;
+            max-width: 200px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
         }
-        .projects .project .info {
-            max-width: 700px;
+
+        .project .info {
+            flex: 1;
             padding-left: 20px;
         }
+
+        ul {
+            padding-left: 20px;
+        }
+
         footer {
             text-align: center;
             background-color: #333;
             color: white;
             padding: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .projects .project {
+                flex-direction: column;
+            }
+
+            .project .info {
+                padding-left: 0;
+            }
+
+            nav {
+                flex-wrap: wrap;
+            }
+        }
+
+        .contact a {
+            color: #333;
+            text-decoration: underline;
+        }
+
+        .download-resume {
+            display: inline-block;
+            margin-top: 10px;
+            background-color: #333;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .download-resume:hover {
+            background-color: #555;
         }
     </style>
 </head>
@@ -79,57 +142,97 @@
     <p>| Mikko Rance Marasigan, 4th Year BSCS-DS Student |</p>
 </header>
 
-<nav>
+<nav id="navbar">
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#education">Education</a>
+    <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
 </nav>
 
+<main>
+
 <section id="about" class="about">
     <h2>About Me</h2>
-    <p>Good day! I'm Mikko Marasigan, a 4th Year BSCS Student with specialization in Data Science. I enjoy tackling complex problems and crafting solutions that bring ideas to life. I have experience with HTML, CSS, JavaScript, and various frameworks.</p>
+    <p>Hello! I'm Mikko Marasigan, a passionate 4th Year Computer Science student specializing in Data Science. I thrive on solving complex problems and building meaningful solutions through data, algorithms, and code. I enjoy working with modern web technologies and creating clean, functional applications. I aspire to become a Data Scientist or Full-Stack Developer after graduation.</p>
+    <a class="download-resume" href="resume.pdf" target="_blank">Download Resume (PDF)</a>
 </section>
 
 <section id="skills" class="skills">
     <h2>Skills</h2>
     <ul>
-        <li><strong>Programming Languages:</strong> Python, JavaScript, HTML, CSS, SQL</li>
-        <li><strong>Web Development:</strong> React, Node.js, Express, Flask</li>
-        <li><strong>Data Science:</strong> Machine Learning, Data Analysis, Data Visualization (Matplotlib, Seaborn)</li>
+        <li><strong>Languages:</strong> Python, JavaScript, HTML, CSS, SQL</li>
+        <li><strong>Web Dev:</strong> React, Node.js, Express, Flask</li>
+        <li><strong>Data Science:</strong> Machine Learning, Data Analysis, Visualization (Matplotlib, Seaborn)</li>
         <li><strong>Tools:</strong> Git, GitHub, VSCode, Jupyter Notebooks</li>
-        <li><strong>Database Management:</strong> MySQL, MongoDB</li>
-        <li><strong>Soft Skills:</strong> Problem Solving, Communication, Team Collaboration</li>
+        <li><strong>Databases:</strong> MySQL, MongoDB</li>
+        <li><strong>Soft Skills:</strong> Teamwork, Communication, Problem-Solving</li>
     </ul>
 </section>
 
 <section id="education" class="education">
     <h2>Education</h2>
     <ul>
-        <li><strong>BS in Computer Science - Data Science Specialization</strong><br>
-            University of Perpetual Help System Dalta Molino, 2020-2025<br>
-            Relevant coursework: Data Structures & Algorithms, Machine Learning, Web Development, Database Management
+        <li>
+            <strong>Bachelor of Science in Computer Science (Data Science)</strong><br>
+            University of Perpetual Help System Dalta Molino, 2020–2025<br>
+            Coursework: Data Structures, Algorithms, ML, Web Development, DB Management
         </li>
-        <li><strong>High School</strong><br>
-            Colegio De Los Baños, 2014-2018<br>
-            Achievements: Completed Senior Highschool with High Honors
+        <li>
+            <strong>High School</strong><br>
+            Colegio De Los Baños, 2014–2018<br>
+            Graduated with High Honors
         </li>
     </ul>
+</section>
+
+<section id="projects" class="projects">
+    <h2>Projects</h2>
+
+    <div class="project">
+        <img src="project1.jpg" alt="Screenshot of Project 1">
+        <div class="info">
+            <h3>Project Title 1</h3>
+            <p>A web-based data visualization dashboard built using Flask and Chart.js to analyze COVID-19 trends.</p>
+            <p><strong>Tools:</strong> Python, Flask, Chart.js, Pandas</p>
+        </div>
+    </div>
+
+    <div class="project">
+        <img src="project2.jpg" alt="Screenshot of Project 2">
+        <div class="info">
+            <h3>Project Title 2</h3>
+            <p>A task management app with full CRUD functionality, featuring user authentication and responsive design.</p>
+            <p><strong>Tools:</strong> Node.js, Express, MongoDB, Bootstrap</p>
+        </div>
+    </div>
 </section>
 
 <section id="contact" class="contact">
     <h2>Contact Me</h2>
-    <p>If you'd like to contact me, feel free to reach out to me via email or connect with me on LinkedIn!</p>
+    <p>Let's connect! Reach me via email or LinkedIn:</p>
     <ul>
-        <li>Email: <a href="mailto:your-email@example.com">mkkmrsgn75@gmail.com</a></li>
-        <li>LinkedIn: <a href="https://www.linkedin.com/in/mkkmrsgn75" target="_blank">mkkmrsgn</a></li>
-	<li>Contact #: (+63) 966 689 1612 </li>
+        <li>Email: <a href="mailto:mkkmrsgn75@gmail.com">mkkmrsgn75@gmail.com</a></li>
+        <li>LinkedIn: <a href="https://ph.linkedin.com/in/mikko-marasigan-1a4745222" target="_blank">linkedin.com/in/mkkmrsgn</a></li>
+        <li>GitHub: <a href="https://github.com/mkkmrsgn" target="_blank">github.com/mkkmrsgn</a></li>
+        <li>Phone: (+63) 966 689 1612</li>
     </ul>
 </section>
 
+</main>
+
 <footer>
-    <p>&copy; 2025 Marasigan. All Rights Reserved.</p>
+    <p>&copy; 2025 Mikko Marasigan. All Rights Reserved.</p>
 </footer>
 
-</body>
-</html>
+<script>
+    // Highlight nav link when scrolling
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav a");
+
+    window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 60;
+            if (scrollY >= sectionTop) {
+                current
